@@ -2,7 +2,6 @@ import streamlit as st
 from translator.languages import languages
 
 from transformers import pipeline 
-import torch
 
 
 # Include Font Awesome CDN
