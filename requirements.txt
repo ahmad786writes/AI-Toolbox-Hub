@@ -2,4 +2,4 @@ streamlit
 sentencepiece
 transformers
 sacremoses
-pytorch
+torch
