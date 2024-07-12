@@ -1,5 +1,6 @@
 import streamlit as st
 from translator.languages import languages
+import gc
 
 from transformers import pipeline 
 
@@ -57,7 +58,8 @@ elif selected_tool == '📙Language Translation':
         text_translated = translator(text,
                                 src_lang=source_language,
                                 tgt_lang=target_language)
-        
+        del translator
+        gc.collect()
         return text_translated[0]['translation_text']
 
 
@@ -105,6 +107,8 @@ elif selected_tool == '📝Summarization':
         summary = summarizer(text,
                      min_length=min_length,
                      max_length=max_length)
+        del summarizer
+        gc.collect()
         
         return summary[0]['summary_text']
 
